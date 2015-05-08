@@ -5,8 +5,9 @@ var PersonView = Backbone.View.extend({
     },
     render:function(){
         console.log(this.model.toJSON())
+        this.model.toJSON().data.name="ssss";
         var html = template('testView',this.model.toJSON().data);
-        $('#test').append(html)
+        $('#test').html(html)
     },
     events:{
         "click #a":"call"
