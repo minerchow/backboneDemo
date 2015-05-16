@@ -1,4 +1,4 @@
-define("viewRequire",['modelRequire'],function(){
+define("viewRequire",function(){
     var PersonView = Backbone.View.extend({
         el:"#test",
         initialize:function(){
@@ -6,7 +6,7 @@ define("viewRequire",['modelRequire'],function(){
         },
         render:function(){
             console.log(this.model.toJSON())
-           // this.model.toJSON().data.name="ssss";
+            this.model.toJSON().data.name="ssss";
             var html = template('testView',this.model.toJSON().data);
             $('#test').html(html)
         },
