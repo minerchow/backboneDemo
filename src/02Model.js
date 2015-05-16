@@ -4,17 +4,22 @@ var Person = Backbone.Model.extend({
 
    },
    initialize:function(){
+        this.post();
+   },
 
+   post:function(){
+       this.fetch({
+           url:"data.json",
+           success:function(model){
+               console.log(model.toJSON())
+           }
+       })
    }
 });
 
 
 var person =new Person;
-person.fetch({
-    url:"data.json",
-    success:function(model){
-    }
-})
+
 
 
 
