@@ -6,15 +6,23 @@ define("viewRequire",function(){
         },
         render:function(){
             console.log(this.model.toJSON())
-            this.model.toJSON().data.name="ssss";
-            var html = template('testView',this.model.toJSON().data);
+          //  this.model.toJSON().data.name="ssss";
+            var html = template('testView',this.model.toJSON().initDataFormatted.data);
             $('#test').html(html)
         },
         events:{
             "click #a":"call"
         },
         call:function(event){
-            console.log($(event.currentTarget));
+            $.ajax({
+                url:"data.json",
+                dataType:"json",
+                data:{
+                    "name":"assss"
+                }
+            }).done(function(){
+
+            })
         }
     })
     return PersonView;
